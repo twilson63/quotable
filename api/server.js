@@ -11,7 +11,7 @@ const PouchDB = require('pouchdb-core')
 PouchDB.plugin(require('pouchdb-adapter-mysql'))
 const db = PouchDB('quotes3')
 const randomInt = require('random-int')
-
+const { compose, not, contains, split } = require('ramda')
 app.use(cors())
 
 app.use(
@@ -28,7 +28,9 @@ app.use(
   })
 )
 app.get('/quote', async (req, res) => {
-  console.log(req.user)
+  if (compose(not, contains('read:quote'), split(' '))(req.user.scope)) {
+    return res.status(403).send({ message: 'Not Authorized' })
+  }
   // pick a random number between 1 and 75,000
   res.send(await db.get(randomInt(75966).toString()))
 })

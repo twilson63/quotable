@@ -7,7 +7,7 @@ export default class Auth {
     redirectUri: 'http://localhost:3000/callback',
     audience: 'https://quote-api.jrscode2.xyz',
     responseType: 'token id_token',
-    scope: 'openid'
+    scope: 'openid read:quote'
   })
 
   constructor() {
