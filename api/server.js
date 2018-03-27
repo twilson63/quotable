@@ -28,6 +28,7 @@ app.use(
   })
 )
 app.get('/quote', async (req, res) => {
+  console.log(req.user)
   // pick a random number between 1 and 75,000
   res.send(await db.get(randomInt(75966).toString()))
 })
