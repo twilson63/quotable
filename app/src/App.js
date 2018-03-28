@@ -1,10 +1,9 @@
-import React, { Component } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import React from 'react'
 import Container from 'react-declarative-container'
 import Cond from './cond'
+import logo from './famous-quotes.png'
 
-const QUOTE = 'http://localhost:5000/quote'
+const QUOTE = process.env.REACT_APP_API
 const State = Cond.State
 
 const center = 'vh-100 flex items-center justify-center'
@@ -38,6 +37,9 @@ const App = props => (
           component={() => (
             <div className={center}>
               <div className="ma4 avenir">
+                <div className="tc">
+                  <img className="w3 h3" src={logo} alt="famous quotes" />
+                </div>
                 <h4 className="tc f4" style={{ color: '#82BC00' }}>
                   Famous Quotes
                 </h4>

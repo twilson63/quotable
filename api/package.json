@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "files": ["package.json","server.js","yarn.lock"],
   "dependencies": {
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
@@ -19,6 +20,7 @@
     "nodemon": "^1.17.2"
   },
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   }
 }

@@ -12,7 +12,7 @@ const randomInt = require('random-int')
 app.use(cors())
 app.get('/quote', async (req, res) => {
   // pick a random number between 1 and 75,000
-  res.send(await db.get(randomInt(75966).toString()))
+  res.send(await db.get(randomInt(75966).toString()).catch(err => ({error: err.message})))
 })
 
 app.post('/quote', bodyParser.json(), async (req, res) => {
